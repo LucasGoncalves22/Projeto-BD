@@ -16,17 +16,17 @@
         <a href = "/" class = "btn btn-info">Página Anterior</a>
     </div>
 
-    <div class = "col-1 m-auto pt-4 pb-3 text-left">
-       <form name="form" id="form" method="post">
+    <div class = "col-4 m-auto pt-4 pb-3 text-left">
+       <form name="form" id="form" action="{% if carro %}/update/{{carro.placa}}/{%else%}/create/{% endif %}" method="post">
             {% csrf_token %}
-           <div class="form-group mt-3, pb-1">Placa: {{form.placa}}</div>
-           <div class="form-group mt-3, pb-1">Cor: {{form.cor}}</div>
-           <div class="form-group mt-3, pb-1">Ano Fabricação: {{form.ano_fabricacao}}</div>
-           <div class="form-group mt-3, pb-1 ">Modelo: {{form.modelo}}</div>
-           <div class="form-group mt-3, pb-2">Ano Modelo: {{form.ano_modelo}}</div>
-           <div class="form-group mt-3, pb-2">Classe: {{form.classe}}</div>
-           <div class="form-group mt-3, pb-2">Acessórios: {{form.classe}}</div>
-           <input type="submit" class="btn btn-success" value="Registrar" style="margin-top:20px;">
+           <div class="form-group mt-3, pb-1">Placa:<br/>{{form.placa}}</div>
+           <div class="form-group mt-3, pb-1">Cor:<br/>{{form.cor}}</div>
+           <div class="form-group mt-3, pb-1">Ano Fabricação:<br/>{{form.ano_fabricacao}}</div>
+           <div class="form-group mt-3, pb-1 ">Modelo:<br/>{{form.modelo}}</div>
+           <div class="form-group mt-3, pb-2">Ano Modelo:<br/>{{form.ano_modelo}}</div>
+           <div class="form-group mt-3, pb-2">Cliente:<br/>{{form.cliente}}</div>
+           <div class="form-group mt-3, pb-2">Acessórios:<br/>{{form.acessorios}}</div>
+           <input type="submit" class="btn btn-success" value="Registrar Carro" style="margin-top:20px;">
        </form>
     </div>
 </body>

@@ -1,36 +1,35 @@
 from django.forms import ModelForm
+from django import forms
 from bd.models import Carro
-from bd.models import Classe
-from bd.models import Modificado
-from bd.models import Normal
-from bd.models import Acessorios
+from bd.models import Cliente
+from bd.models import Acessorio
+from django.forms import DateField
 
 # Create the form class.
 class CarroForm(ModelForm):
    class Meta:
        model = Carro
-       fields = ['placa', 'cor', 'ano_fabricacao', 'modelo', 'ano_modelo', 'classe', 'acessorios']
+       fields = ['placa', 'cor', 'ano_fabricacao', 'modelo', 'ano_modelo', 'cliente', 'acessorios']
 
+   acessorios = forms.ModelMultipleChoiceField(
+        queryset=Acessorio.objects.all(),
+        widget=forms.CheckboxSelectMultiple
+   )
 
-class ClasseForm(ModelForm):
+class ClienteForm(ModelForm):
+    data_nascimento = DateField(input_formats=['%Y-%m-%d'])
+    class Meta:
+       model = Cliente
+       fields = '__all__'
+
+class AcessorioForm(ModelForm):
    class Meta:
-       model = Classe
-       fields = ['idclasse', 'nome']
+       model = Acessorio
+       fields = '__all__'
 
 
-class ModificadoForm(ModelForm):
-   class Meta:
-       model = Modificado
-       fields = ['com_acessorios', 'nome_veiculo']
 
 
-class NormalForm(ModelForm):
-   class Meta:
-       model = Normal
-       fields = ['sem_acessorios', 'nome_veiculo']
 
 
-class AcessoriosForm(ModelForm):
-   class Meta:
-       model = Acessorios
-       fields = ['codigo_acessorio', 'volante', 'para_choque', 'plotagem', 'estilo_roda', 'tipo_mola', 'tamanho_roda', 'tipo_suspensao', 'escapamento']
+

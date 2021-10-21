@@ -13,9 +13,11 @@
     </div>
 
     <div class = "col-8 m-auto pt-3 pb-2 text-center">
-        <a href = "/form" class = "btn btn-success">Adicionar</a>
+        <a href = "/form" class = "btn btn-success">Adicionar Carro</a>
+        <a href = "/cliente" class = "btn btn-success">Adicionar Cliente</a>
     </div>
 
+    <!--Tabela De Carros-->
     <div class = "col-8 m-auto pt-4 pb-2 text-center">
         <table class="table table-bordered table-dark">
           <thead>
@@ -26,44 +28,70 @@
               <th scope="col">Ano de Fabricação</th>
               <th scope="col">Modelo</th>
               <th scope="col">Ano do Modelo</th>
-              <th scope="col">Classe</th>
-              <th scope="col">Modificado</th>
-              <th scope="col">Normal</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Acessórios</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
+          {% for dbs in carro%}
+             <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{dbs.placa}}</td>
+                <td>{{dbs.cor}}</td>
+                <td>{{dbs.ano_fabricacao}}</td>
+                <td>{{dbs.modelo}}</td>
+                <td>{{dbs.ano_modelo}}</td>
+                <td>{{dbs.cliente}}</td>
+                <td>
+                {% for a in dbs.acessorios.all %}
+                    {{a}},
+                {% endfor %}
+                <td>
+                    <a href="/view/{{dbs.placa}}/" class="btn btn-info" >Consultar Carro</a>
+                    <a href="/edit/{{dbs.placa}}/" class="btn btn-primary" >Atualizar</a>
+                    <a href="" class="btn btn-danger" >Excluir</a>
+                </td>
+             </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+        <!--Tabela De Clientes-->
+        <table class="table table-bordered table-dark">
+          <thead>
             <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@opan</td>
-              <td>@hello</td>
-              <td>@hello</td>
-              <td>@hello</td>
-              <td>@hello</td>
+              <th scope="col">#</th>
+              <th scope="col">Rg</th>
+              <th scope="col">Nome Completo</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Data Nascimento</th>
+              <th scope="col">Estado Civil</th>
+              <th scope="col">Idade</th>
+              <th scope="col">Sexo</th>
+              <th scope="col">Cep</th>
+              <th scope="col">Ações</th>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td>@fat32</td>
-              <td>@vpn23</td>
-              <td>@fat</td>
-              <td>@fat32</td>
-              <td>@vpn23</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-              <td>@tl</td>
-              <td>@flat</td>
-              <td>@twitter</td>
-              <td>@tl</td>
-              <td>@flat</td>
-            </tr>
+          </thead>
+          <tbody>
+          {% for dbs in cliente%}
+             <tr>
+                <th scope="row">{{ forloop.counter }}</th>
+                <td>{{dbs.rg}}</td>
+                <td>{{dbs.endereco}}</td>
+                <td>{{dbs.data_nascimento}}</td>
+                <td>{{dbs.estado_civil}}</td>
+                <td>{{dbs.idade}}</td>
+                <td>{{dbs.sexo}}</td>
+                <td>{{dbs.nome_completo}}</td>
+                <td>{{dbs.cep}}</td>
+                <td>
+                    <a href="/clienteview/{{dbs.rg}}/" class="btn btn-info" >Consultar Cliente</a>
+                    <a href="/clienteedit/{{dbs.rg}}/" class="btn btn-primary" >Atualizar</a>
+                    <a href="" class="btn btn-danger" >Excluir</a>
+                </td>
+             </tr>
+          {% endfor %}
           </tbody>
         </table>
     </div>
