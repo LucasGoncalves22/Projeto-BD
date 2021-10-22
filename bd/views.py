@@ -4,12 +4,18 @@ from bd.forms import ClienteForm
 from bd.models import Carro
 from bd.models import Cliente
 from django.forms import DateField
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
     data = {}
-    data['carro'] = Carro.objects.all()
-    data['cliente'] = Cliente.objects.all()
+    search = request.GET.get('search')
+    if search:
+        data['carro'] = Carro.objects.filter(placa__icontains=search)
+        data['cliente'] = Cliente.objects.filter(rg__icontains=search)
+    else:
+        data['carro'] = Carro.objects.all()
+        data['cliente'] = Cliente.objects.all()
     return render(request, 'index.html', data)
 
 
@@ -86,4 +92,14 @@ def clienteupdate(request, pk):
         return redirect('home')
 
 
+def delete(request, pk):
+    carro = Carro.objects.get(pk=pk)
+    carro.delete()
+    return redirect('home')
+
+
+def clientedelete(request, pk):
+    cliente = Cliente.objects.get(pk=pk)
+    cliente.delete()
+    return redirect('home')
 

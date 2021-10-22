@@ -17,6 +17,14 @@
         <a href = "/cliente" class = "btn btn-success">Adicionar Cliente</a>
     </div>
 
+
+     <div class = "col-8 m-auto pt-3 pb-2 text-center">
+         <form method="get">
+             <input type="text" id="search" name="search" class="form-control" placeholder="Pesquisar Dados da Concessionária">
+         </form>
+    </div>
+
+
     <!--Tabela De Carros-->
     <div class = "col-8 m-auto pt-4 pb-2 text-center">
         <table class="table table-bordered table-dark">
@@ -50,7 +58,7 @@
                 <td>
                     <a href="/view/{{dbs.placa}}/" class="btn btn-info" >Consultar Carro</a>
                     <a href="/edit/{{dbs.placa}}/" class="btn btn-primary" >Atualizar</a>
-                    <a href="" class="btn btn-danger" >Excluir</a>
+                    <a href="/delete/{{dbs.placa}}/" class="btn btn-danger btnExcluir" >Excluir</a>
                 </td>
              </tr>
           {% endfor %}
@@ -88,12 +96,16 @@
                 <td>
                     <a href="/clienteview/{{dbs.rg}}/" class="btn btn-info" >Consultar Cliente</a>
                     <a href="/clienteedit/{{dbs.rg}}/" class="btn btn-primary" >Atualizar</a>
-                    <a href="" class="btn btn-danger" >Excluir</a>
+                    <a href="/clientedelete/{{dbs.rg}}/" class="btn btn-danger btnExcluir" >Excluir</a>
                 </td>
              </tr>
           {% endfor %}
           </tbody>
         </table>
     </div>
+
+
+    {% load static %}
+    <script src="{% static 'abadelete.js' %}"></script>
 </body>
 </html>

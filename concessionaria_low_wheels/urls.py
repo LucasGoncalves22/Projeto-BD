@@ -19,7 +19,7 @@ from bd.views import home
 
 from django.contrib import admin
 from django.urls import path
-from bd.views import home, form, clienteform, create, clientecreate, view, clienteview, edit, clienteedit, update, clienteupdate
+from bd.views import home, form, clienteform, create, clientecreate, view, clienteview, edit, clienteedit, update, clienteupdate, delete, clientedelete
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,4 +34,6 @@ urlpatterns = [
     path('clienteedit/<str:pk>/', clienteedit, name='clienteedit'),
     path('update/<str:pk>/', update, name='update'),
     path('clienteupdate/<str:pk>/', clienteupdate, name='clienteupdate'),
+    path('delete/<str:pk>/', delete, name='delete'),
+    path('clientedelete/<str:pk>/', clientedelete, name='clientedelete'),
 ]
