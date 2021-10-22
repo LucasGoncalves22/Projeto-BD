@@ -22,7 +22,7 @@ class Acessorio(models.Model):
         return self.nome_acessorio
 
 class Carro(models.Model):
-    placa = models.CharField(primary_key=True, max_length=7)
+    placa = models.CharField(primary_key=True, max_length=8)
     cor = models.CharField(max_length=45)
     ano_fabricacao = models.IntegerField()
     modelo = models.CharField(max_length=20)
