@@ -1,16 +1,6 @@
 create database concessionaria_low_wheels;
 use concessionaria_low_wheels;
 
-create table carro(
-placa varchar(8) primary key,
-cor varchar(45) not null,
-ano_fabricacao int not null,
-modelo varchar(20) not null,
-ano_modelo int not null,
-Rg varchar(15) not null,
-foreign key (Rg) references cliente (rg)
-);
-
 create table cliente(
 rg varchar(15) primary key,
 endereco varchar(100) not null,
@@ -21,6 +11,17 @@ sexo varchar(45) not null,
 nome_completo varchar(65) not null,
 cep varchar(15) not null
 );
+
+create table carro(
+placa varchar(8) primary key,
+cor varchar(45) not null,
+ano_fabricacao int not null,
+modelo varchar(20) not null,
+ano_modelo int not null,
+Rg varchar(15) not null,
+foreign key (Rg) references cliente (rg)
+);
+
 
 create table telefone(
 telefone varchar(15) not null,
@@ -159,20 +160,20 @@ end //
 DELIMITER ;
 
 
-insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('jkl8596', 'Branco',2017, 'Civic Touring 1.5 ', 2018, '1.258.978');
-insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('jkl9875', 'Cinza',2001, 'GTR R34 ', 2001, '1.258.974');
-insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('BRA2E19', 'Preto',2020, 'Jetta GLI ', 2021, '1.258.984');
-insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('PAI-8596', 'Branco',2010, 'Linea 1.4 T-JET', 2010, '2.258.984');
-insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('lpw9364', 'vermelho',2012, 'GTR R35', 2013, '5.258.974');
-Select * FROM carro;
-
-
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('1.258.978', 'Samambaia quadra 505, conjunto 9 casa 1, brasilia distrito federal', '1973-05-25', 'solteiro ', '48', 'Masculino','Alex do Santos', '7251984');
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('1.258.974', 'Lago sul quadra 505, conjunto 9 casa 1, brasilia distrito federal', '1972-06-20', 'solteiro ', '49', 'Masculino','Zezinho Pereira', '7351985');
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('1.258.984', 'São paulo', '2001-06-20', 'casada', '20', 'Masculino','Maria Joana', '7351985');
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('2.258.984', 'Londrina', '2003-01-01','solteiro ', '18', 'Masculino','João', '7351978');
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('5.258.974', 'Rio de Janeiro', '1994-02-20', 'casado', '27', 'Masculino','Gustavo silva', '8351985');
 Select * FROM cliente;
+
+
+insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('jkl8596', 'Branco',2017, 'Civic Touring 1.5 ', 2018, '1.258.978');
+insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('jkl9875', 'Cinza',2001, 'GTR R34 ', 2001, '1.258.974');
+insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('BRA2E19', 'Preto',2020, 'Jetta GLI ', 2021, '1.258.984');
+insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('PAI-8596', 'Branco',2010, 'Linea 1.4 T-JET', 2010, '2.258.984');
+insert into carro(placa, cor, ano_fabricacao, modelo, ano_modelo, Rg) values('lpw9364', 'vermelho',2012, 'GTR R35', 2013, '5.258.974');
+Select * FROM carro;
 
 
 insert into telefone (telefone, Rg) values('(61) 9999-999','1.258.978');
@@ -247,7 +248,6 @@ Select * from nivel_de_urgencia;
 
 
 DROP table telefone;
-DROP table cliente;
 DROP table orcamento;
 DROP table normal;
 DROP table carro_has_recall;
@@ -258,6 +258,7 @@ DROP table carro_has_pecas;
 DROP table modificado;
 DROP table classe;
 DROP table carro;
+DROP table cliente;
 DROP table pecas;
 DROP table acessorios;
 DROP table recall;
