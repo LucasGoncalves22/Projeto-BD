@@ -15,3 +15,7 @@ Abrir o prompt de comando do seu sistema operacional e digitar **python manage.p
 **WAMPSERVER 64**
 
 O link para o download confiável do próprio site do **Wampserver 64**: https://wampserver.br.uptodown.com/windows 
+
+
+
+Caso tenha dúvidas na instalação do **WampServer 64** acompanha um tutorial, **Lembre-se a versão do MYSQL tem que ser a 8.0.21** : https://www.youtube.com/watch?v=QXVyCunZN2s
