@@ -22,6 +22,7 @@ class ClienteForm(ModelForm):
        model = Cliente
        fields = '__all__'
 
+
 class AcessorioForm(ModelForm):
    class Meta:
        model = Acessorio

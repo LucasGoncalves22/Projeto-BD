@@ -4,7 +4,8 @@ from bd.forms import ClienteForm
 from bd.models import Carro
 from bd.models import Cliente
 from django.forms import DateField
-from django.core.paginator import Paginator
+from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def home(request):
@@ -38,12 +39,36 @@ def create(request):
         return redirect('home')
 
 
+def handle_uploaded_file(f):
+    with open('/Projeto_BD/bd/upload' + f.name, 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+
+
 def clientecreate(request):
-    clienteform = ClienteForm(request.POST or None)
+    #clienteform = ClienteForm(request.POST, request.FILES['foto'] or None)
     #print('*', clienteform.errors)
-    if clienteform.is_valid():
-        clienteform.save()
-        return redirect('home')
+
+    print('*', request.FILES['foto'].name)
+    if request.method == 'POST':
+        clienteform = ClienteForm(request.POST, request.FILES or None)
+        if clienteform.is_valid():
+            handle_uploaded_file(request.FILES['foto'])
+            clienteform = clienteform.save(commit=False)
+            clienteform.save()
+            return HttpResponseRedirect('')
+    else:
+        clienteform = ClienteForm()
+    return render(request, 'index.html', {'clienteform': clienteform})
+
+
+
+
+    #if clienteform.is_valid(): Código Original Rodando
+    #    clienteform.save()
+    #    return redirect('home')
+
 
 def view(request, pk):
     data = {}

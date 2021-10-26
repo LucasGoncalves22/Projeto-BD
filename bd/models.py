@@ -10,9 +10,11 @@ class Cliente(models.Model):
     sexo = models.CharField(max_length=45)
     nome_completo = models.CharField(max_length=65)
     cep = models.CharField(max_length=15)
+    foto = models.FileField()
 
     def __str__(self):
         return self.nome_completo
+
 
 class Acessorio(models.Model):
     codigo_acessorio = models.IntegerField(primary_key=True)

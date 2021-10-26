@@ -79,10 +79,11 @@
               <th scope="col">Nome Completo</th>
               <th scope="col">Cep</th>
               <th scope="col">Ações</th>
+              <th scope="col">Foto</th>
             </tr>
           </thead>
           <tbody>
-          {% for dbs in cliente%}
+          {% for dbs in cliente %}
              <tr>
                 <th scope="row">{{ forloop.counter }}</th>
                 <td>{{dbs.rg}}</td>
@@ -98,6 +99,7 @@
                     <a href="/clienteedit/{{dbs.rg}}/" class="btn btn-primary" >Atualizar</a>
                     <a href="/clientedelete/{{dbs.rg}}/" class="btn btn-danger btnExcluir" >Excluir</a>
                 </td>
+                <td>{{dbs.foto}}</td>
              </tr>
           {% endfor %}
           </tbody>

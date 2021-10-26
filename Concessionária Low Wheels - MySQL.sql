@@ -9,7 +9,8 @@ estado_civil varchar(20) not null,
 idade int not null,
 sexo varchar(45) not null,
 nome_completo varchar(65) not null,
-cep varchar(15) not null
+cep varchar(15) not null,
+foto Blob
 );
 
 create table carro(
