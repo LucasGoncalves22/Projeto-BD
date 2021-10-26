@@ -39,3 +39,6 @@ Depois do passo acima você irá executar o comando **python manage.py makemigra
 # Pontos Importantes
 
 
+Os acessórios só podem ser colocados pelos administradores, por conta que um cliente pode colocar acessórios o qual não são considerados modificações em um carro.
+
+**Para você adicionar no phpmyadmin vai precisar executar esse comando SQL, selecionando o banco de dados(concessionaria_low_wheels e depois bd_acessorios o último passo é clicar em SQL e rodar esse insert pronto **INSERT INTO bd_acessorio (codigo_acessorio, nome_acessorio) VALUES ('1', 'Volante'), ('2', 'Para-Choque'), ('3', 'Plotagem'), ('4', 'Body Kit'), ('5', 'Mola Esportiva');**
