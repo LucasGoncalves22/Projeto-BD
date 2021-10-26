@@ -31,4 +31,5 @@ Acesse o browser é coloque o seguinte link: http://localhost/phpmyadmin/  depoi
 
 # Já na parte da execução propriamente dita, você tem que abrir o prompt de comando na pasta do projeto para rodar o mesmo, e digitar pip install  mysqlclient-1.4.6-cp39-cp39-win_amd64.whl para fazer a instalação do mysqlcliente que integra o phpmyadmin ao CRUD.
 
-
+Depois do passo acima você irá executar o comando **python manage.py makemigrations** para importar da **camada de persistência as tabelas Cliente, Acessório e Carro** integrando-se tanto ao CRUD quanto ao WampServer 64, o principal comando vem agora **python manage.py migrate** onde aplica as migrações das tabelas **CRUD** ao banco de dados
+**phpmyadmin**.
