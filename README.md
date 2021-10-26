@@ -27,4 +27,4 @@ Caso tenha dúvidas na instalação do **WampServer 64** acompanha um tutorial, 
 Após a instalação do **WampServer 64** tem que verificar se todos os serviços estão funcionando o ícone ficará **VERDE**.
 
 
-Acesse o browser é coloque o seguinte link: http://localhost/phpmyadmin/  depois, no utilizador deve estar escrito como **"root"** para dar prosseguimento a execução do projeto e assim você aperta em executar 
+Acesse o browser é coloque o seguinte link: http://localhost/phpmyadmin/  depois, no utilizador deve estar escrito como **"root"** para dar prosseguimento a execução do projeto e assim você aperta em executar. Além disso, vai aparcer a tela do **phpmyadmin** onde contém os bancos de dados nesse caso, só precisa importar o arquivo, mas, antes disso (tem que clicar em importar no site e selecionar o **arquivo MYSQL do projeto "Concessionária Low Wheels - MySQL"**) que já está no seu diretório do computador.
