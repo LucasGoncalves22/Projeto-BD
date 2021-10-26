@@ -28,3 +28,7 @@ Após a instalação do **WampServer 64** tem que verificar se todos os serviço
 
 
 Acesse o browser é coloque o seguinte link: http://localhost/phpmyadmin/  depois, no utilizador deve estar escrito como **"root"** para dar prosseguimento a execução do projeto e assim você aperta em executar. Além disso, vai aparcer a tela do **phpmyadmin** onde contém os bancos de dados nesse caso, só precisa importar o arquivo, mas, antes disso (tem que clicar em importar no site e selecionar o **arquivo MYSQL do projeto "Concessionária Low Wheels - MySQL"**) que já está no seu diretório do projeto.
+
+# Já na parte da execução propriamente dita, você tem que abrir o prompt de comando na pasta do projeto para rodar o mesmo, e digitar pip install  mysqlclient-1.4.6-cp39-cp39-win_amd64.whl para fazer a instalação do mysqlcliente que integra o phpmyadmin ao CRUD.
+
+
