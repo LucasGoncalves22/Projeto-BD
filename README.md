@@ -34,4 +34,4 @@ Acesse o browser é coloque o seguinte link: http://localhost/phpmyadmin/  depoi
 Depois do passo acima você irá executar o comando **python manage.py makemigrations** para importar da **camada de persistência as tabelas Cliente, Acessório e Carro** integrando-se tanto ao CRUD quanto ao WampServer 64, o principal comando vem agora **python manage.py migrate** onde aplica as migrações das tabelas **CRUD** ao banco de dados
 **phpmyadmin**.
 
-**Por fim você executa novamente o comando python manage.py runserver e digita no browser o link gerado desse comando para ter acesso a interface do sistema CRUD onde liga a camada de persistência ao Banco de Dados hospedado no WampServer**.
+**Por fim você executa novamente o comando python manage.py runserver e digita no browser o link gerado desse comando para ter acesso a interface do sistema CRUD onde liga a camada de persistência ao Banco de Dados hospedado no WampServer, e dentro desse link do runserver você consegue fazer todas as operações do CRUD**.
