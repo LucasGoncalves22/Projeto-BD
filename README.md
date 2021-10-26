@@ -18,4 +18,4 @@ O link para o download confiável do próprio site do **Wampserver 64**: https:/
 
 
 
-Caso tenha dúvidas na instalação do **WampServer 64** acompanha um tutorial, **Lembre-se a versão do MYSQL tem que ser a 8.0.21** : https://www.youtube.com/watch?v=QXVyCunZN2s
+Caso tenha dúvidas na instalação do **WampServer 64** acompanha um tutorial, **Lembre-se para rodar o projeto a versão do MYSQL tem que ser a 8.0.21** : https://www.youtube.com/watch?v=QXVyCunZN2s
