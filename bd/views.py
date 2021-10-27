@@ -45,29 +45,19 @@ def handle_uploaded_file(f):
             destination.write(chunk)
 
 
-
 def clientecreate(request):
-    #clienteform = ClienteForm(request.POST, request.FILES['foto'] or None)
-    #print('*', clienteform.errors)
-
-    print('*', request.FILES['foto'].name)
+    # print('*', clienteform.errors) Print para teste de erros.
+    #print('*', request.FILES['foto'].name) Print para saber se as fotos estão chegando.
     if request.method == 'POST':
         clienteform = ClienteForm(request.POST, request.FILES or None)
         if clienteform.is_valid():
             handle_uploaded_file(request.FILES['foto'])
             clienteform = clienteform.save(commit=False)
             clienteform.save()
-            return HttpResponseRedirect('')
+            return redirect('home')
     else:
         clienteform = ClienteForm()
     return render(request, 'index.html', {'clienteform': clienteform})
-
-
-
-
-    #if clienteform.is_valid(): Código Original Rodando
-    #    clienteform.save()
-    #    return redirect('home')
 
 
 def view(request, pk):
