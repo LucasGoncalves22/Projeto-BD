@@ -40,14 +40,14 @@ def create(request):
 
 
 def handle_uploaded_file(f):
-    with open('/Projeto_BD/bd/upload' + f.name, 'wb+') as destination:
+    with open('/Projeto-BD/bd/upload' + f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
 
 def clientecreate(request):
-    # print('*', clienteform.errors) Print para teste de erros.
-    #print('*', request.FILES['foto'].name) Print para saber se as fotos estão chegando.
+    # print('*', clienteform.errors) Print para teste de erros!!
+    #print('*', request.FILES['foto'].name) Print para saber se as fotos estão chegando!!
     if request.method == 'POST':
         clienteform = ClienteForm(request.POST, request.FILES or None)
         if clienteform.is_valid():
