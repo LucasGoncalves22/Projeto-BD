@@ -31,7 +31,7 @@ foreign key (Rg) references cliente (rg)
 );
 
 create view cliente_da_view as select * from telefone ;
-alter view  cliente_da_view as select  * from telefone order by telefone;
+alter view  cliente_da_view as select * from telefone order by telefone;
 
 create table orcamento(
 servico_efetuado varchar(500) not null,
@@ -135,15 +135,15 @@ foreign key (Registro_veiculo_modificado) references modificado (registro_veicul
 
 
 DELIMITER //
-create procedure proc_modicacao_ano_especifico (in ano_modelo int, escapamento varchar(45))
+create procedure proc_modificacao_ano_especifico (in ano_modelo_ent int, IN nome_acessorio_ent varchar(300))
 begin
-	if ano_modelo = 2019 then
-		select * from carro, acessorios where escapamento != 'normal';
-	else 
-		select * from carro, acessorios;
-    end if;
+	SELECT * FROM carro
+	INNER JOIN acessorios ace ON ace.nome_acessorio = nome_acessorio_ent
+	WHERE carro.ano_modelo = ano_modelo_ent;
 end //
 DELIMITER ;
+call proc_modificacao_ano_especifico(2021, 'Escapamento')
+
 
 DELIMITER //
 create procedure proc_pecas(in marca varchar(45))
@@ -153,12 +153,14 @@ where marca = 'fiat';
 end //
 DELIMITER ;
 
+
 DELIMITER //
 create procedure proc_carros_precisam_recall(in modelo varchar(20), chassi varchar(17))
 begin 
 insert into recall values (modelo);
 end //
 DELIMITER ;
+
 
 
 insert into cliente (rg, endereco, data_nascimento, estado_civil, idade, sexo, nome_completo, cep) values('1.258.978', 'Samambaia quadra 505, conjunto 9 casa 1, brasilia distrito federal', '1973-05-25', 'solteiro ', '48', 'Masculino','Alex do Santos', '7251984');
@@ -267,6 +269,6 @@ DROP table nivel_de_urgencia;
 DROP view classe_da_view;
 DROP view acessorios_da_view;
 DROP view cliente_da_view;
-DROP procedure proc_modicacao_ano_especifico;
+DROP procedure proc_modificacao_ano_especifico;
 DROP procedure proc_pecas;
 DROP procedure proc_carros_precisam_recall;
